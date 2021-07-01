@@ -21,6 +21,16 @@ body {
   }
 }
 
+.shop-background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
 .tagline {
   color: white;
   font-family: "Poppins";
@@ -137,6 +147,15 @@ body {
   height: 50px;
   background-color: #ff3e3e;
   color: white;
+  font-size: 1.3rem;
+}
+
+#close-cart:hover {
+  background-color: #ff8282;
+}
+
+#close-cart:active {
+  background-color: #ff1b1b;
 }
 
 #cart-item-container {
@@ -269,3 +288,171 @@ body {
   font-size: 2.6rem;
   font-weight: 400;
 }
+
+/* Settings Styling ================================== */
+
+#settings {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #b4bfff;
+  border-radius: 50%;
+  transition: transform 300ms;
+}
+
+#settings:hover {
+  background-color: #92a2ff;
+  transform: rotate(180deg);
+}
+
+#settings:active {
+  background-color: #7b8fff;
+}
+
+.settings-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: #000000d2;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.settings-box {
+  background-color: #dbc8ff;
+  border-radius: 20px;
+  width: 1000px;
+  height: 800px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.settings-header {
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+  background-color: #A685E2;
+  padding: 20px 40px;
+  color: white;
+  font-size: 1.8rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.settings-btn {
+  padding: 4px 20px;
+  margin-right: 20px;
+  background-color: #6155A6;
+  border-radius: 14px;
+  font-size: 1.2rem;
+  font-weight: lighter;
+}
+
+.settings-btn:hover {
+  background-color: #847daa;
+}
+
+.settings-btn:active {
+  background-color: #4f3fa8;
+}
+
+#close-settings {
+  border: none;
+  border-radius: 50%;
+  background-color: #ff3e3e;
+  color: white;
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+}
+
+#close-settings:hover {
+  background-color: #ff8282;
+}
+
+#close-settings:active {
+  background-color: #ff1b1b;
+}
+
+#add-new-item {
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  border: none;
+  border-radius: 50%;
+  width: 68px;
+  height: 68px;
+  background-color: #6155A6;
+  color: white;
+  font-size: 2rem;
+  transition: background-color 300ms, transform 300ms;
+}
+
+#add-new-item:hover {
+  background-color: #847daa;
+  transform: rotate(180deg);
+}
+
+#add-new-item:active {
+  background-color: #4f3fa8;
+}
+
+#settings-container {
+  border-radius: 0 0 20px 20px;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 20px;
+}
+
+.settings-delete-btn {
+  border: none;
+  border-radius: 50%;
+  background-color: #ff3e3e;
+  color: white;
+  font-size: 0.8rem;
+  width: 20px;
+  height: 20px;
+}
+
+.settings-delete-btn:hover {
+  background-color: #ff8282;
+}
+
+.settings-delete-btn:active {
+  background-color: #ff1b1b;
+}
+
+.settings-item-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+.settings-item-box input {
+  height: 40px;
+  width: 300px;
+  border: 2px solid #A685E2;
+  background-color: #ffffffb2;
+}
+
+.settings-item-box input[type=number] {
+  width: 100px;
+}
+
+/* ======================================================== */
