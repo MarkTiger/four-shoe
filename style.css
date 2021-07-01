@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #bdff91;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  padding: 0 30px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: green;
+  color: white;
+}
+
+.title {
+  font-size: 2rem;
+  font-family: cursive;
+}
+
+header button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: rgb(143, 255, 78);
+
+  font-size: 1.2rem;
+}
+
+header button:hover,
+header button:focus {
+  background-color: rgb(54, 148, 0);
+  color: white;
+}
+
+header button:active {
+  background-color: rgb(36, 97, 0);
+}
+
+#counter {
+  color:white;
+  background-color: rgb(32, 102, 0);
+  padding: 2px;
+  border-radius: 4px;
+  margin-left: 8px;
+}
+
+#shop-item-container {
+  position: relative;
+  top: 80px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.item-box {
+  color: black;
+  background-color: #f3f3f3;
+  font-family: sans-serif;
+  border: 1px solid #11bcff;
+  border-radius: 8px;
+  margin: 40px;
+}
+
+.item-box img {
+  width: 300px;
+  border-radius: 8px;
+}
+
+.image-title {
+  position: relative;
+  
+}
+
+.image-title span {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 2rem;
+  color: red;
+}
+
+.price-cart {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.price-cart button {
+  color: white;
+  background-color: red;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  
+}
