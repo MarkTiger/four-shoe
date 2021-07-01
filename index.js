@@ -1,71 +1,71 @@
 const stockDB = [
   {
-    id: 01,
+    id: 1,
     nama: "Adidas x Bait EQT",
-    price: 6499,
+    price: 1500,
     image: "sepatu01.jpg",
     stock: 9
   },
   {
-    id: 02,
+    id: 2,
     nama: "Adidas Yeezy Boost 350 V2 Carbon",
-    price: 5650,
+    price: 1650,
     image: "sepatu02.jpg",
     stock: 15
   },
   {
-    id: 03,
+    id: 3,
     nama: "Adidas Human Race NMD Pharrell Oreo",
-    price: 5650,
+    price: 1650,
     image: "sepatu03.jpg",
     stock: 10
   },
   {
-    id: 04,
+    id: 4,
     nama: "Adidas Ultraboost SUMMER.RDY Tokyo Shoes",
-    price: 3120,
+    price: 2000,
     image: "sepatu04.jpg",
     stock: 13
   },
   {
-    id: 05,
+    id: 5,
     nama: "Adidas Ultraboost 5.0 DNA Shoes",
-    price: 3500,
+    price: 1300,
     image: "sepatu05.jpg",
     stock: 20
   },
   {
-    id: 06,
+    id: 6,
     nama: "Adidas Climacool Vento Shoes",
-    price: 2250,
+    price: 1250,
     image: "sepatu06.jpg",
     stock: 16
   },
   {
-    id: 07,
+    id: 7,
     nama: "Adidas Nizza Trefoil Shoes",
-    price: 2250,
+    price: 1250,
     image: "sepatu07.jpg",
     stock: 21
   },
   {
-    id: 08,
+    id: 8,
     nama: "Adidas Superstar Shoes",
     price: 1250,
     image: "sepatu08.jpg",
     stock: 12
   },
   {
-    id: 09,
+    id: 9,
     nama: "Adidas Busenitz Pro Shoes",
-    price: 4000,
+    price: 1000,
     image: "sepatu09.jpg",
     stock: 6
   },
   {
     id: 10,
     nama: "Adidas ZX 1K Boost Shoes",
-    price: 2000,
+    price: 1200,
     image: "sepatu10.jpg",
     stock: 10
   },
@@ -79,63 +79,63 @@ const stockDB = [
   {
     id: 12,
     nama: 'Nike Blazer Low 77 PRM',
-    price: 1429,
+    price: 1430,
     image: 'sepatu12.jpg',
     stock: 5
   }, 
   {
     id: 13,
     nama: 'Nike Waffle Trainer 2',
-    price: 1429,
+    price: 1430,
     image: 'sepatu13.jpg',
     stock: 3
   },
   {
     id: 14,
     nama: 'Nike Air Max 96 II',
-    price: 2729,
+    price: 2700,
     image: 'sepatu14.jpg',
     stock: 8
   },
   {
     id: 15,
     nama: 'Nike Air Max 96 2 SE',
-    price: 2569,
+    price: 2500,
     image: 'sepatu15.jpg',
     stock: 15
   },
   {
     id: 16,
     nama: 'Air Jordan 1 Mid SE',
-    price: 1799,
+    price: 1800,
     image: 'sepatu16.jpg',
     stock: 8
   },
   {
     id: 17,
     nama: 'Air Jordan 1 Mid',
-    price: 1649,
+    price: 1650,
     image: 'sepatu17.jpg',
     stock: 9
   },
   {
     id: 18,
     nama: 'Nike Waffle Trainer 2 S.D.',
-    price: 1429,
+    price: 1430,
     image: 'sepatu18.jpg',
     stock: 21
   },
   {
     id: 19,
     nama: 'Nike Retro GTS',
-    price: 799,
+    price: 800,
     image: 'sepatu19.jpg',
     stock: 8
   },
   {
     id: 20,
     nama: 'Nike SB BLZR Court',
-    price: 799,
+    price: 800,
     image: 'sepatu20.jpg',
     stock: 16
   }
@@ -147,6 +147,7 @@ let shopItemContainer = document.querySelector("#container");
 
 // Menampilkan barang dari database ke html
 function main() {
+  shopItemContainer.innerHTML = "";
   for (let i = 0; i < stockDB.length; i++) {
     let itemBox = document.createElement("div");
     let itemImageTitle = document.createElement("div");
@@ -176,6 +177,17 @@ function main() {
     itemBox.appendChild(itemPriceCart);
     shopItemContainer.appendChild(itemBox);
   }
+  addEventListenerCart();
+}
+
+// Add event listener ke semua tombol Cart++
+function addEventListenerCart() {
+  let allAddToCart = document.querySelectorAll(".add-to-cart");
+  
+  for (let i = 0; i < allAddToCart.length; i++) {
+    let addCartButton = allAddToCart[i];
+    addCartButton.addEventListener("click", addToCart);
+  }
 }
 
 main();
@@ -193,19 +205,6 @@ function addToCart(e) {
   }
   cartDB.push(stockDB[index]);
   refreshCartContainer();
-  // checkCartDB();
-}
-
-// function checkCartDB() {
-//   console.log(cartDB)
-// }
-
-// Add event listener ke semua tombol Cart++
-let allAddToCart = document.querySelectorAll(".add-to-cart");
-
-for (let i = 0; i < allAddToCart.length; i++) {
-  let addCartButton = allAddToCart[i];
-  addCartButton.addEventListener("click", addToCart);
 }
 
 // Rebuild / refresh DOM cart-container
@@ -310,3 +309,132 @@ function setTotalHarga_Counter() {
   totalHargaElement.textContent = `Rp ${totalHarga} K`;
   counterElement.textContent = cartDB.length;
 }
+
+
+// Settings Page Code =======================================================
+let settingsPageElement = document.querySelector(".settings-page");
+function openSettings() {
+  settingsPageElement.style.zIndex = "200";
+}
+
+function closeSettings() {
+  settingsPageElement.style.zIndex = "-200";
+}
+
+let settingsContainer = document.querySelector("#settings-container");
+function refreshSettings() {
+  settingsContainer.innerHTML = "";
+  for (let i = 0; i < stockDB.length; i++) {
+
+    let settingsItemBox = document.createElement("div");
+    let settingsItemDeleteBtn = document.createElement("button");
+    let settingsItemNama = document.createElement("input");
+    let settingsItemPrice = document.createElement("input");
+    let settingsItemImage = document.createElement("input");
+    let settingsItemStock = document.createElement("input");
+
+    settingsItemBox.classList.add("settings-item-box");
+
+    settingsItemDeleteBtn.innerHTML = "&#10005;";
+    settingsItemDeleteBtn.setAttribute("id", `settings-${stockDB[i].id}`);
+    settingsItemDeleteBtn.classList.add("settings-delete-btn");
+    settingsItemDeleteBtn.addEventListener("click", deleteItemDB);
+    
+    settingsItemNama.setAttribute("type", "text");
+    settingsItemNama.setAttribute("value", stockDB[i].nama);
+    settingsItemNama.setAttribute("placeholder", "Nama Barang");
+    
+    settingsItemPrice.setAttribute("type", "number");
+    settingsItemPrice.setAttribute("value", stockDB[i].price);
+    settingsItemPrice.setAttribute("placeholder", "Harga Barang");
+
+    settingsItemImage.setAttribute("type", "text");
+    settingsItemImage.setAttribute("value", stockDB[i].image);
+    settingsItemImage.setAttribute("placeholder", "File Gambar");
+
+    settingsItemStock.setAttribute("type", "number");
+    settingsItemStock.setAttribute("value", stockDB[i].stock);
+    settingsItemStock.setAttribute("placeholder", "Stock Barang");
+
+    settingsItemBox.appendChild(settingsItemDeleteBtn);
+    settingsItemBox.appendChild(settingsItemNama);
+    settingsItemBox.appendChild(settingsItemPrice);
+    settingsItemBox.appendChild(settingsItemImage);
+    settingsItemBox.appendChild(settingsItemStock);
+
+    settingsContainer.appendChild(settingsItemBox);
+  }
+  main();
+}
+
+refreshSettings();
+
+function updateStockDB() {
+  let settingsItemBoxList = document.querySelectorAll(".settings-item-box");
+  for (let i = 0; i < settingsItemBoxList.length; i++) {
+    let currentNama = settingsItemBoxList[i].childNodes[1].value;
+    let currentPrice = settingsItemBoxList[i].childNodes[2].value;
+    let currentImage = settingsItemBoxList[i].childNodes[3].value;
+    let currentStock = settingsItemBoxList[i].childNodes[4].value;
+
+    stockDB[i].nama = currentNama;
+    stockDB[i].price = Number(currentPrice);
+    stockDB[i].image = currentImage;
+    stockDB[i].stock = Number(currentStock);
+  }
+  main();
+}
+
+function deleteItemDB(e) {
+  let id = e.currentTarget.getAttribute("id").slice(9);
+  for (let i = 0; i < stockDB.length; i++) {
+    let currentId = stockDB[i].id;
+    if (currentId == id) {
+      stockDB.splice(i,1);
+    }
+  }
+  refreshSettings();
+}
+
+function addItemDB() {
+  let input = prompt("Masukkan semua data dipisah dengan tanda ';'");
+  if (!input) {
+    alert("Invalid data");
+  } else {
+    let data = [];
+    let temp = "";
+    for (let i = 0; i < input.length; i++) {
+      if (input[i] !== ";") {
+        temp += input[i];
+      } else {
+        data.push(temp);
+        temp = "";
+      }
+      if (i === input.length - 1 && input[i] !== ";") {
+        data.push(temp);
+      }
+    }
+    if (data.length < 4) {
+      alert("Data yang dimasukkan kurang");
+    } else {
+      let [nama, price, image, stock] = data;
+      price = Number(price);
+      stock = Number(stock);
+      if (!Number(price) || !Number(stock)) {
+        alert("Harga atau stock harus angka!");
+      } else {
+        let id;
+        if (stockDB.length === 0) {
+          id = 1;
+        } else {
+          id = stockDB[stockDB.length - 1].id + 1;
+        }
+        stockDB.push({
+          id, nama, price, image, stock
+        });
+        refreshSettings();
+      }
+    }
+  }
+}
+// ===============================================================
