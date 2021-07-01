@@ -5,23 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Four Shoes</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.4.0/tailwind.min.css"
-        integrity="sha256-CAI/7ThhltsmP2L2zKBYa7FknB3ZwFbD0nqL8FCdxdc=" crossorigin="anonymous" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.4.0/tailwind.min.css"
+        integrity="sha256-CAI/7ThhltsmP2L2zKBYa7FknB3ZwFbD0nqL8FCdxdc=" crossorigin="anonymous" /> -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./style.css" />
 </head>
 
-<body class="bg-gray-800">
-    <nav class="flex items-center bg-purple-700 p-3 flex-wrap justify-between">
+<body>
+  <div class="bg-gray-800">
+    <nav class="flex items-center bg-purple-700 p-3 justify-between">
         <div class="mx-auto container">
             <a href="#" class="p-2 mr-4 inline-flex items-center">
-                <span class="text-2xl text-white font-extrabold uppercase tracking-wide">Four Shoes</span>
+                <span class="text-2xl text-white font-extrabold uppercase tracking-wide" style="font-family: 'Pacifico';">Four Shoes</span>
             </a>
         </div>
+        <span class="tagline">#ShoeForYou</span>
         <div id="menu" class="space-x-2 mx-auto">
-            <a href="#"
-                class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-xl font-bold rounded-full text-white items-center justify-center hover:bg-blue-600 hover:text-white bg-purple-600 shadow-2xl">
-                <p><span>Cart</span> <span class="text-red-500">9</span></p>
-            </a>
+            <button onclick="openCartPage()"
+                class="lg:inline-flex lg:w-auto w-full px-3 py-2 text-xl rounded-full text-white items-center justify-center hover:bg-blue-600 hover:text-white bg-purple-600 shadow-2xl">
+                <span>Cart</span>&nbsp;<span id="counter" style="color: #00195f;">0</span>
+            </button>
         </div>
     </nav>
 
@@ -29,17 +32,60 @@
         <div id="search" class="container mx-auto m-5">
             <input type="text" class="w-full border-blue-600 rounded-full py-3 px-6 text-center text-xl font-bold hover:bg-blue-600 bg-purple-700 text-white" placeholder="Search . . .">
         </div>
-        <div id="container" class="grid grid-cols-3 gap-6 container mx-auto">
-            <div class="box-border h-64 w-128 p-4 border-4 text-white text-center">Item</div>
-            <div class="box-border h-64 w-128 p-4 border-4 text-white text-center">Item</div>
-            <div class="box-border h-64 w-128 p-4 border-4 text-white text-center">Item</div>
-            <div class="box-border h-64 w-128 p-4 border-4 text-white text-center">Item</div>
-            <div class="box-border h-64 w-128 p-4 border-4 text-white text-center">Item</div>
-            <div class="box-border h-64 w-128 p-4 border-4 text-white text-center">Item</div>
-            <div class="box-border h-64 w-128 p-4 border-4 text-white text-center">Item</div>
-            <div class="box-border h-64 w-128 p-4 border-4 text-white text-center">Item</div>
-            <div class="box-border h-64 w-128 p-4 border-4 text-white text-center">Item</div>
+        <div id="container" class="grid grid-cols-3 gap-20 container mx-auto">
+            
         </div>
     </section>
+    
+    <!-- Cart Page -->
+     <div id="cart-page" style="z-index: -100;">
+        <!-- <div class="bg-gray-900 shadow-lg rounded-xl p-6">
+            <h1 style="color: white; float: left; padding-right: 80%; font-size: 1.2rem;"><b>Chart</b></h1>
+            <button class="bg-red-800 rounded-full w-8 h-8 text-center p-1" onclick="closeFunction()">X</button>
+            <div style="overflow: auto; height: 50vh;">
+                <br>
+                <div style="background-color: brown; height: 35vh;"></div>
+                <h2 class="text-lg mr-auto text-gray-200 truncate ">Lorem ipsum</h2>
+                <div class="text-xl text-white font-semibold mt-1">Rp.100.000</div><br><br>
+                <div style="background-color: brown; height: 35vh;"></div>
+                <h2 class="text-lg mr-auto text-gray-200 truncate ">Lorem ipsum</h2>
+                <div class="text-xl text-white font-semibold mt-1">Rp.100.000</div><br><br>
+            </div>
+            <div class="flex flex-row" style="color: white;">
+                <div style="margin-right: 60%;">
+                    <b>Total Harga</b>
+                    <p>RP.100.000</p>
+                </div>
+                <div>
+                    <button class="transition ease-in duration-300 inline-flex text-sm font-medium mb-2 md:mb-0 bg-purple-500 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-600 ">
+                        <span>Buy</span>
+                    </button>
+                </div>
+            </div> 
+        </div> -->
+        <div class="cart-box">
+          <div class="cart-header">
+            <span>Shopping Cart</span>
+            <button id="close-cart" onclick="closeCart()">&#10005;</button>
+        </div>
+        <div id="cart-item-container">
+
+        </div>
+        <div class="cart-footer">
+            <div>
+              <span>Total Harga</span>
+              <span id="total-harga" class="total-harga">Rp 0</span>
+            </div>
+            <button onclick="buyBtn()">Buy</button>
+        </div>
+      </div>
+    </div>
+    <div id="popup-page" style="z-index: -100;">
+      <div class="popup-box">
+        <span id="msg">Pembelian Berhasil! Terima kasih</span>
+      </div>
+    </div>
+  </div>
+    <script src="index.js"></script>
 </body>
 </html>
