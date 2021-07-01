@@ -1,2 +1,2 @@
 # four-shoe
-Toko sepatu #ShouForYou
+Toko sepatu #ShoeForYou
