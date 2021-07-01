@@ -1,4 +1,5 @@
-let stockDB = [
+
+const stockDB = [
   {
     id: 01,
     nama: "Adidas x Bait EQT",
