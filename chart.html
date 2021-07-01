@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body style="background-color: gray;">
+
+    <div id="close" style="width: 450px; margin-left: 35%; padding: 100px 0 100px 0;">
+        <div class="bg-gray-900 shadow-lg rounded-xl p-6">
+            <h1 style="color: white; float: left; padding-right: 80%;"><b>Chart</b></h1>
+            <button class="bg-red-800 rounded-full w-8 h-8 text-center p-1" onclick="closeFunction()">X</button>
+            <div style="overflow: scroll; height: 50vh;">
+                <br>
+                <div style="background-color: brown; height: 35vh;"></div>
+                <h2 class="text-lg mr-auto text-gray-200 truncate ">Lorem ipsum</h2>
+                <div class="text-xl text-white font-semibold mt-1">Rp.100.000</div><br><br>
+                <div style="background-color: brown; height: 35vh;"></div>
+                <h2 class="text-lg mr-auto text-gray-200 truncate ">Lorem ipsum</h2>
+                <div class="text-xl text-white font-semibold mt-1">Rp.100.000</div><br><br>
+            </div>
+            <div class="flex flex-row" style="color: white;">
+                <div style="margin-right: 60%;">
+                    <b>Total Harga</b>
+                    <p>RP.100.000</p>
+                </div>
+                <div>
+                    <button class="transition ease-in duration-300 inline-flex text-sm font-medium mb-2 md:mb-0 bg-purple-500 px-5 py-2 hover:shadow-lg tracking-wider text-white rounded-full hover:bg-purple-600 ">
+                        <span>Buy</span>
+                    </button>
+                </div>
+            </div> 
+        </div>
+    </div>
+
+    <script>
+        
+        function closeFunction() {
+            document.getElementById("close").innerHTML = "";
+        }
+
+    </script>
+</body>
+</html>
