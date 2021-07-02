@@ -145,7 +145,7 @@ let cartDB = [];
 let shopItemContainer = document.querySelector("#container");
 
 // Menampilkan barang dari database ke html
-function main() {
+function main(stockDB) {
   shopItemContainer.innerHTML = "";
   for (let i = 0; i < stockDB.length; i++) {
     let itemBox = document.createElement("div");
@@ -189,7 +189,7 @@ function addEventListenerCart() {
   }
 }
 
-main();
+main(stockDB);
 
 // Fungsi menambahkan item ke cartDB sesuai tombol yang ditekan
 function addToCart(e) {
@@ -204,7 +204,7 @@ function addToCart(e) {
   }
   if (stockDB[index].stock > 0) {
     stockDB[index].stock--;
-    main();
+    main(stockDB);
     cartDB.push(stockDB[index]);
     refreshCartContainer();
   } else {
@@ -378,7 +378,7 @@ function refreshSettings() {
 
     settingsContainer.appendChild(settingsItemBox);
   }
-  main();
+  main(stockDB);
 }
 
 refreshSettings();
@@ -396,7 +396,7 @@ function updateStockDB() {
     stockDB[i].image = currentImage;
     stockDB[i].stock = Number(currentStock);
   }
-  main();
+  main(stockDB);
 }
 
 function deleteItemDB(e) {
@@ -456,3 +456,21 @@ function addItemDB() {
   }
 }
 // ===============================================================
+
+// Search function ===============================================
+let searchElement = document.querySelector("#search");
+searchElement.addEventListener("keyup", search);
+
+function search(e) {
+  let searchword = e.currentTarget.value.toLowerCase();
+  let searchDB = [];
+  for (let i = 0; i < stockDB.length; i++) {
+    let namaSepatu = stockDB[i].nama.toLowerCase();
+    if (namaSepatu.includes(searchword)) {
+      searchDB.push(stockDB[i]);
+    }
+  }
+  main(searchDB);
+}
+
+// =================================================================
