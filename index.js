@@ -1,5 +1,4 @@
-const stockDB = [
-  {
+const stockDB = [{
     id: 1,
     nama: "Adidas x Bait EQT",
     price: 1500,
@@ -82,7 +81,7 @@ const stockDB = [
     price: 1430,
     image: 'sepatu12.jpg',
     stock: 5
-  }, 
+  },
   {
     id: 13,
     nama: 'Nike Waffle Trainer 2',
@@ -166,8 +165,8 @@ function main() {
     itemPrice.innerHTML = `<span style="color: #00195f;">Rp</span> ${stockDB[i].price} <span style="color: #00195f;">K</span>`;
     itemAddCart.setAttribute("id", stockDB[i].id);
     itemAddCart.setAttribute("class", "add-to-cart");
-    itemAddCart.textContent = "Cart++";
-    
+    itemAddCart.textContent = "🛒";
+
     itemImageTitle.appendChild(itemImage);
     itemImageTitle.appendChild(itemTitle);
     itemPriceCart.appendChild(itemPrice);
@@ -183,7 +182,7 @@ function main() {
 // Add event listener ke semua tombol Cart++
 function addEventListenerCart() {
   let allAddToCart = document.querySelectorAll(".add-to-cart");
-  
+
   for (let i = 0; i < allAddToCart.length; i++) {
     let addCartButton = allAddToCart[i];
     addCartButton.addEventListener("click", addToCart);
@@ -221,11 +220,11 @@ function refreshCartContainer() {
     let itemTitle = document.createElement("span");
     let itemPrice = document.createElement("span");
     let itemDeleteBtn = document.createElement("button");
-  
+
     itemBox.setAttribute("class", "item-box2");
     itemTitlePriceDelete.setAttribute("class", "title-price-delete");
     itemPriceDelete.setAttribute("class", "price-delete");
-  
+
 
     itemImage.setAttribute("src", `images/${cartDB[i].image}`);
     itemTitle.textContent = cartDB[i].nama;
@@ -234,12 +233,12 @@ function refreshCartContainer() {
     itemDeleteBtn.setAttribute("class", `delete-from-cart`);
     itemDeleteBtn.innerHTML = '<img src="https://img.icons8.com/color/48/000000/trash.png"/>';
     itemDeleteBtn.addEventListener("click", deleteFromCart);
-    
+
     // itemImageTitle.appendChild(itemImage);
     // itemImageTitle.appendChild(itemTitle);
     // itemPriceDelete.appendChild(itemPrice);
     // itemPriceDelete.appendChild(itemDeleteBtn);
-  
+
     // itemBox.appendChild(itemImage);
     // itemBox.appendChild(itemPriceDelete);
     itemPriceDelete.appendChild(itemPrice);
@@ -290,8 +289,8 @@ function buyBtn() {
 
   popupBox.style.zIndex = "100";
   cartDB = [];
-  
-  setTimeout(()=>{
+
+  setTimeout(() => {
     popupBox.style.zIndex = "-100";
   }, 2000);
   refreshCartContainer();
@@ -313,6 +312,7 @@ function setTotalHarga_Counter() {
 
 // Settings Page Code =======================================================
 let settingsPageElement = document.querySelector(".settings-page");
+
 function openSettings() {
   settingsPageElement.style.zIndex = "200";
 }
@@ -322,6 +322,7 @@ function closeSettings() {
 }
 
 let settingsContainer = document.querySelector("#settings-container");
+
 function refreshSettings() {
   settingsContainer.innerHTML = "";
   for (let i = 0; i < stockDB.length; i++) {
@@ -339,11 +340,11 @@ function refreshSettings() {
     settingsItemDeleteBtn.setAttribute("id", `settings-${stockDB[i].id}`);
     settingsItemDeleteBtn.classList.add("settings-delete-btn");
     settingsItemDeleteBtn.addEventListener("click", deleteItemDB);
-    
+
     settingsItemNama.setAttribute("type", "text");
     settingsItemNama.setAttribute("value", stockDB[i].nama);
     settingsItemNama.setAttribute("placeholder", "Nama Barang");
-    
+
     settingsItemPrice.setAttribute("type", "number");
     settingsItemPrice.setAttribute("value", stockDB[i].price);
     settingsItemPrice.setAttribute("placeholder", "Harga Barang");
@@ -390,7 +391,7 @@ function deleteItemDB(e) {
   for (let i = 0; i < stockDB.length; i++) {
     let currentId = stockDB[i].id;
     if (currentId == id) {
-      stockDB.splice(i,1);
+      stockDB.splice(i, 1);
     }
   }
   refreshSettings();
@@ -430,7 +431,11 @@ function addItemDB() {
           id = stockDB[stockDB.length - 1].id + 1;
         }
         stockDB.push({
-          id, nama, price, image, stock
+          id,
+          nama,
+          price,
+          image,
+          stock
         });
         refreshSettings();
       }
