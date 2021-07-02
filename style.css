@@ -315,6 +315,7 @@ body {
   background-color: #b4bfff;
   border-radius: 50%;
   transition: transform 300ms;
+  box-shadow: 0 2px 4px black;
 }
 
 #settings:hover {
@@ -491,3 +492,31 @@ body {
 }
 
 /* ======================================================== */
+
+#float-cart-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  z-index: 2;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #5700e2;
+  border-radius: 50%;
+  transition: background-color 300ms;
+  box-shadow: 0 2px 4px black;
+}
+
+#float-cart-button img {
+  width: 30px;
+}
+
+#float-cart-button:hover {
+  background-color: #7a28ff;
+}
+
+#float-cart-button:active {
+  background-color: #36008d;
+}
