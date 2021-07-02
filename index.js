@@ -202,8 +202,14 @@ function addToCart(e) {
       break;
     }
   }
-  cartDB.push(stockDB[index]);
-  refreshCartContainer();
+  if (stockDB[index].stock > 0) {
+    stockDB[index].stock--;
+    main();
+    cartDB.push(stockDB[index]);
+    refreshCartContainer();
+  } else {
+    alert("Stock sudah habis");
+  }
 }
 
 // Rebuild / refresh DOM cart-container
@@ -257,6 +263,14 @@ function refreshCartContainer() {
 function deleteFromCart(e) {
   let id = e.currentTarget.getAttribute("id");
   let index = id.slice(5);
+  let itemId = cartDB[index].id;
+  for (let i = 0; i < stockDB.length; i++) {
+    let currentId = stockDB[i].id;
+    if (currentId === itemId) {
+      stockDB[i].stock++;
+      console.log(stockDB[i])
+    }
+  }
   cartDB.splice(index, 1);
   refreshCartContainer();
 }
