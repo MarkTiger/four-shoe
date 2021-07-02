@@ -268,7 +268,6 @@ function deleteFromCart(e) {
     let currentId = stockDB[i].id;
     if (currentId === itemId) {
       stockDB[i].stock++;
-      console.log(stockDB[i])
     }
   }
   cartDB.splice(index, 1);
